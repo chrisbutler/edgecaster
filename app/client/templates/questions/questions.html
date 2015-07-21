@@ -1,0 +1,32 @@
+<template name="Questions">
+  <div class="questions">
+    <h1>Questions</h1>
+    <ul class="list-group">
+      {{#each question}}
+        {{> _question}}
+      {{/each}}
+    </ul>
+  </div>
+</template>
+
+<template name="_question">
+  <li class="list-group-item" data-active="{{active}}">
+    <p>
+      {{comment}}
+    </p>
+    <strong>
+      {{author_name}}
+    </strong>
+    <div class="pull-right">
+      <ul class="list-inline">
+        <li>
+          <span class="glyphicon glyphicon-pencil"></span>
+        </li>
+
+        <li>
+          <span class="glyphicon glyphicon-trash"></span>
+        </li>
+      </ul>
+    </div>
+  </li>
+</template>

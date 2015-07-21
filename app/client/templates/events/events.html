@@ -1,0 +1,12 @@
+<template name="Events">
+  <h1>Events</h1>
+  <ul>
+    {{#each this}}
+      <li>
+        {{#linkTo route='eventQuestions'}}
+          {{code}} - {{title}} ({{status}})
+        {{/linkTo}}
+      </li>
+    {{/each}}
+  </ul>
+</template>

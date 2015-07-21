@@ -1,8 +1,8 @@
-Displays = new Mongo.Collection('displays');
+Questions = new Mongo.Collection('questions');
 
 
 if (Meteor.isServer) {
-  Displays.allow({
+  Questions.allow({
     insert: function (userId, doc) {
       return true;
     },
@@ -16,7 +16,7 @@ if (Meteor.isServer) {
     }
   });
 
-  Displays.deny({
+  Questions.deny({
     insert: function (userId, doc) {
       return false;
     },

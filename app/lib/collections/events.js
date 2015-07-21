@@ -1,32 +1,32 @@
-Displays = new Mongo.Collection('displays');
+Events = new Mongo.Collection('events');
 
 
 if (Meteor.isServer) {
-  Displays.allow({
+  Events.allow({
     insert: function (userId, doc) {
-      return true;
+      return false;
     },
 
     update: function (userId, doc, fieldNames, modifier) {
-      return true;
+      return false;
     },
 
     remove: function (userId, doc) {
-      return true;
+      return false;
     }
   });
 
-  Displays.deny({
+  Events.deny({
     insert: function (userId, doc) {
-      return false;
+      return true;
     },
 
     update: function (userId, doc, fieldNames, modifier) {
-      return false;
+      return true;
     },
 
     remove: function (userId, doc) {
-      return false;
+      return true;
     }
   });
 }

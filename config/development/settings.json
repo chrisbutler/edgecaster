@@ -1,6 +1,7 @@
 {
   "public": {
   },
-
-  "sample": "value"
+  "coveritlive": {
+    "token": "6dff8e28309111ba7d6d2de60dab5d1e"
+  }
 }

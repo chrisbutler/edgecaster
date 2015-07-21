@@ -1,0 +1,10 @@
+<template name="Screens">
+  <h1>Screens</h1>
+  {{#each screen}}
+    {{#linkTo route='screen'}}
+      {{number}}. {{name}}
+    {{/linkTo}}
+  {{else}}
+    No Screens...
+  {{/each}}
+</template>

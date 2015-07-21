@@ -1,0 +1,13 @@
+.questions {
+  .list-group-item {
+    background-color: transparent;
+    cursor: pointer;
+    &.selected, &[data-active] {
+      background-color: white;
+      color: #252729;
+      .list-inline {
+        display: none;
+      }
+    }
+  }
+}
