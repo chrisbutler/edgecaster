@@ -18,7 +18,7 @@
     z-index: 2;
     top: 0;
     left: 0;
-    padding: 30px;
+    padding: 45px;
     .content {
       height: 100%;
       position: relative;
@@ -32,10 +32,14 @@
       span:first-child {
 
       }
+      &.comment p {
+        display: inline;
+      }
     }
     h3 {
+      font-size: 32px;
+      //margin: 60px 0 0;
       position: absolute;
-      margin: 0;
       bottom: 30px;
       right: 30px;
       &:before {
