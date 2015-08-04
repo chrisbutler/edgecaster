@@ -23,7 +23,7 @@ Template._full.onRendered(function () {
 
       $("#comment-text").fitText(f, {
         minFontSize: '54px',
-        maxFontSize: '108px'
+        maxFontSize: '100px'
       })
 
 
