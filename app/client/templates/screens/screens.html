@@ -1,10 +1,39 @@
 <template name="Screens">
-  <h1>Screens</h1>
-  {{#each screen}}
-    {{#linkTo route='screen'}}
-      {{number}}. {{name}}
-    {{/linkTo}}
-  {{else}}
-    No Screens...
-  {{/each}}
+  <div class="screens">
+    <h1>Screens</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each screen}}
+          {{> screenRow}}
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</template>
+
+<template name="screenRow">
+  <tr>
+    <th scope="row">
+      {{#linkTo route='screen'}}
+        {{number}}
+      {{/linkTo}}
+    </th>
+    <td>
+      {{#linkTo route='screen'}}
+        {{name}}
+      {{/linkTo}}
+    </td>
+    <td>
+      {{#linkTo route='screen'}}
+        {{type}}
+      {{/linkTo}}
+    </td>
+  </tr>
 </template>

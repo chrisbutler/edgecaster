@@ -14,7 +14,6 @@ EventsController = RouteController.extend({
       return [this.subscribe('event', this.params.code), this.subscribe('questions', this.params.code)];
     }
   },
-
   data: function () {
     if (this.route.options.action == 'list') {
       return Events.find({}, {sort: {scheduled_starttime: -1}});
@@ -22,18 +21,14 @@ EventsController = RouteController.extend({
       return Events.findOne({code: this.params.code});
     }
   },
-
   list: function () {
-    this.render('Events', { /* data: {} */});
+    this.render('Events');
   },
-
   show: function () {
-    // this.render('Event', { /* data: {} */});
     this.render('Questions', {
       data: {
         question: Questions.find({code: this.params.code})
       }
     });
   }
-
 });

@@ -1,5 +1,11 @@
 ScreensController = RouteController.extend({
-  layoutTemplate: 'FullLayout',
+  layoutTemplate: function() {
+    if (Router.current().route.options.action == 'list') {
+      return 'MasterLayout';
+    } else {
+      return 'FullLayout';
+    }
+  },
   // subscriptions: function () {
   // },
   data: function () {
