@@ -3,18 +3,34 @@
 </template>
 
 <template name="_full">
-  <div class="full-wrapper">
+  <div class="full wrapper">
     <div class="wrap">
       <img class="img-responsive" src="http://hedgcaster.s3.amazonaws.com/HE_TV.jpg">
-      <div class="content-wrapper">
-        <div class="content">
-          <h1 class="comment">
-            <span id="comment-text"></span>
-          </h1>
-          <h3>{{question.author_name}}</h3>
-        </div>
-      </div>
+      {{> content}}
       <div class="background"></div>
     </div>
+  </div>
+</template>
+
+<template name="_blank">
+  <div class="blank wrapper">
+    <div class="wrap">
+      <div class="content-wrapper">
+        {{> content}}
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="content">
+  <div class="content-wrapper">
+    <div class="content">
+      <h5>{{livestamp time=question.timestamp unix='true'}}</h5>
+      <h1 class="comment">
+        <span id="comment-text"></span>
+      </h1>
+      <h3>{{question.author_name}}</h3>
+    </div>
+    <div class="background"></div>
   </div>
 </template>

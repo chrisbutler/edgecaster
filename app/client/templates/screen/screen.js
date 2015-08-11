@@ -8,8 +8,7 @@ Template.Screen.rendered = function() {
   console.log('Screen rendered', this);
 }
 
-Template._full.onRendered(function () {
-  console.log('full rendered', this);
+Template.content.onRendered(function () {
   this.autorun(function () {
     var d = Displays.findOne({_id: Router.current().params._id});
     var q = Questions.findOne({_id: d.question})
@@ -23,28 +22,22 @@ Template._full.onRendered(function () {
 
       $("#comment-text").fitText(f, {
         minFontSize: '54px',
-        maxFontSize: '100px'
+        maxFontSize: '124px'
       })
 
-
-
-      // if ($("#comment-text span").data('typed')) {
-      //   $("#comment-text span").typed('reset');
-      //   // e.removeData('typed')
-      //   // $('.typed-cursor').remove();
-      // }
-
       $("#comment-text").empty().css({'opacity': 1}).append('<p></p>');
+
       $("#comment-text p").typed({
         strings: [q.comment],
         contentType: 'text',
+        typeSpeed: -10,
         resetCallback: function() {
           console.log('reset', this);
         },
-        // callback: function() {
-        //   console.log('typed callback', this);
-        // }
+        callback: function() {
+          console.log('typed callback', this);
+        }
       });
     }
-  })
+  });
 });

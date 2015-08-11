@@ -7,5 +7,9 @@ html, body {
   font-family: 'Proxima Nova', Arial, sans-serif;
 }
 
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #444;
+}
+
 .main {
 }

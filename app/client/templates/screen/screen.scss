@@ -1,11 +1,27 @@
-.full-wrapper {
+.wrapper {
   height: 100%;
   width: 100%;
-  padding: 30px 60px;
-  background: url('http://hedgcaster.s3.amazonaws.com/img/bg/wood-bg-2.jpg') center no-repeat;
+  padding: 60px;
+  &.full {
+    background: url('http://hedgcaster.s3.amazonaws.com/img/bg/wood-bg-2.jpg') center no-repeat;
+  }
+  &.blank {
+    background: url('http://hedgcaster.s3.amazonaws.com/img/HETV_macroshow_bg.jpg') center no-repeat;
+    background-size: cover;
+  }
   .wrap {
     overflow: hidden;
     position: relative;
+  }
+  &.blank {
+    .content-wrapper .background {
+      opacity: .3;
+      z-index: -1;
+      border: 1px solid #999;
+    }
+    .wrap {
+      height: 100%;
+    }
   }
   img {
     position: relative;
@@ -29,6 +45,7 @@
       font-size: 48px;
       font-weight: bold;
       display: inline;
+      text-shadow: 3px 3px 3px #333;
       span:first-child {
 
       }
@@ -37,17 +54,22 @@
       }
     }
     h3 {
-      font-size: 32px;
-      //margin: 60px 0 0;
+      font-size: 60px;
       position: absolute;
       bottom: 30px;
       right: 30px;
+      text-align: right;
       &:before {
         content: '-';
         padding-right: 5px;
       }
-      color: #999;
-      text-align: right;
+    }
+    h5 {
+      font-weight: bold;
+      font-size: 24px;
+      margin-bottom: 5px;
+      color: #CCC;
+      text-transform: uppercase;;
     }
   }
   .background {

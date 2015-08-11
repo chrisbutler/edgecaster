@@ -1,5 +1,5 @@
 EventsController = RouteController.extend({
-  onBeforeAction: function() {
+  onRun: function() {
     Meteor.call('/cil/event/list');
     this.next();
   },
@@ -17,7 +17,7 @@ EventsController = RouteController.extend({
 
   data: function () {
     if (this.route.options.action == 'list') {
-      return Events.find();
+      return Events.find({}, {sort: {scheduled_starttime: -1}});
     } else {
       return Events.findOne({_id: this.params._id});
     }

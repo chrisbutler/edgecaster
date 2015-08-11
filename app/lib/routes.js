@@ -5,9 +5,16 @@ Router.configure({
 });
 
 Router.route('/', {
-  name: 'home',
-  controller: 'HomeController',
-  action: 'action',
+  name: 'events',
+  controller: 'EventsController',
+  action: 'list',
+  where: 'client'
+});
+
+Router.route('event/:_id', {
+  name: 'event',
+  controller: 'EventsController',
+  action: 'show',
   where: 'client'
 });
 
@@ -26,6 +33,7 @@ Router.route('screens', {
   where: 'client'
 });
 
+
 Router.route('questions', {
   name: 'questions',
   controller: 'QuestionsController',
@@ -37,19 +45,5 @@ Router.route('questions/:code', {
   name: 'eventQuestions',
   controller: 'QuestionsController',
   action: 'action',
-  where: 'client'
-});
-
-Router.route('events', {
-  name: 'events',
-  controller: 'EventsController',
-  action: 'list',
-  where: 'client'
-});
-
-Router.route('event/:_id', {
-  name: 'event',
-  controller: 'EventsController',
-  action: 'show',
   where: 'client'
 });

@@ -1,12 +1,47 @@
 <template name="Events">
-  <h1>Events</h1>
-  <ul>
-    {{#each this}}
-      <li>
-        {{#linkTo route='eventQuestions'}}
-          {{code}} - {{title}} ({{status}})
-        {{/linkTo}}
-      </li>
-    {{/each}}
-  </ul>
+  <div class="events">
+    <h1>Events</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Timestamp</th>
+          <th>Title</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each this}}
+          {{> eventRow}}
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</template>
+
+<template name="eventRow">
+  <tr>
+    <th scope="row">
+      {{#linkTo route='eventQuestions'}}
+        {{livestamp scheduled_starttime unix=true}}
+      {{/linkTo}}
+    </th>
+    <td>
+      {{#linkTo route='eventQuestions'}}
+        {{title}}
+      {{/linkTo}}
+    </td>
+    <td>
+      {{#linkTo route='eventQuestions'}}
+        {{status}}
+      {{/linkTo}}
+    </td>
+  </tr>
+</template>
+
+<template name="eventItem">
+  <li>
+    {{#linkTo route='eventQuestions'}}
+      {{code}} - {{title}} ({{status}})
+    {{/linkTo}}
+  </li>
 </template>
