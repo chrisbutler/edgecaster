@@ -21,17 +21,17 @@
 <template name="eventRow">
   <tr>
     <th scope="row">
-      {{#linkTo route='eventQuestions'}}
+      {{#linkTo route='event'}}
         {{livestamp scheduled_starttime unix=true}}
       {{/linkTo}}
     </th>
     <td>
-      {{#linkTo route='eventQuestions'}}
+      {{#linkTo route='event'}}
         {{title}}
       {{/linkTo}}
     </td>
     <td>
-      {{#linkTo route='eventQuestions'}}
+      {{#linkTo route='event'}}
         {{status}}
       {{/linkTo}}
     </td>
@@ -40,7 +40,7 @@
 
 <template name="eventItem">
   <li>
-    {{#linkTo route='eventQuestions'}}
+    {{#linkTo route='event'}}
       {{code}} - {{title}} ({{status}})
     {{/linkTo}}
   </li>

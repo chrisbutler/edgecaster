@@ -4,46 +4,28 @@ Router.configure({
   notFoundTemplate: 'NotFound'
 });
 
+
 Router.route('/', {
   name: 'events',
   controller: 'EventsController',
-  action: 'list',
-  where: 'client'
+  action: 'list'
 });
 
-Router.route('event/:_id', {
+Router.route('event/:code', {
   name: 'event',
   controller: 'EventsController',
-  action: 'show',
-  where: 'client'
+  action: 'show'
 });
 
-
-Router.route('screen/:_id/', {
-  name: 'screen',
-  controller: 'ScreenController',
-  action: 'show',
-  where: 'client'
-});
 
 Router.route('screens', {
   name: 'screens',
-  controller: 'ScreenController',
-  action: 'list',
-  where: 'client'
+  controller: 'ScreensController',
+  action: 'list'
 });
 
-
-Router.route('questions', {
-  name: 'questions',
-  controller: 'QuestionsController',
-  action: 'action',
-  where: 'client'
-});
-
-Router.route('questions/:code', {
-  name: 'eventQuestions',
-  controller: 'QuestionsController',
-  action: 'action',
-  where: 'client'
+Router.route('screen/:_id/', {
+  name: 'screen',
+  controller: 'ScreensController',
+  action: 'show'
 });

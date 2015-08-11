@@ -10,7 +10,7 @@ Template.Screen.rendered = function() {
 
 Template.content.onRendered(function () {
   this.autorun(function () {
-    var d = Displays.findOne({_id: Router.current().params._id});
+    var d = Screens.findOne({_id: Router.current().params._id});
     var q = Questions.findOne({_id: d.question})
     if (d && q) {
       $("#comment-text").css({ 'opacity': 0}).append('<span></span>');

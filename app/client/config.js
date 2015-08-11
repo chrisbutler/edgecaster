@@ -3,7 +3,7 @@ Session.setDefault('typing', false);
 Template.registerHelper('livestamp', function(date, opts) {
   var time = new Date();
 
-  if (opts.hash && opts.hash.unix) {
+  if (opts && opts.hash && opts.hash.unix) {
      time = moment.unix(date);
   } else {
     time = moment(date);

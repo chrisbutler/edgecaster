@@ -1,25 +1,25 @@
 EventsController = RouteController.extend({
   onRun: function() {
-    Meteor.call('/cil/event/list');
+    if (this.route.options.action == 'list') {
+      Meteor.call('/cil/event/list');
+    } else if (this.params.code) {
+      Meteor.call('/cil/comment/list', this.params.code);
+    }
     this.next();
   },
   subscriptions: function () {
-    // set up the subscriptions for the route and optionally
-    // wait on them like this:
-    //
-    // this.subscribe('item', this.params._id).wait();
-    //
-    // "Waiting" on a subscription does not block. Instead,
-    // the subscription handle is added to a reactive list
-    // and when all items in this list are ready, this.ready()
-    // returns true in any of your route functions.
+    if (this.route.options.action == 'list') {
+      return this.subscribe('events');
+    } else {
+      return [this.subscribe('event', this.params.code), this.subscribe('questions', this.params.code)];
+    }
   },
 
   data: function () {
     if (this.route.options.action == 'list') {
       return Events.find({}, {sort: {scheduled_starttime: -1}});
     } else {
-      return Events.findOne({_id: this.params._id});
+      return Events.findOne({code: this.params.code});
     }
   },
 
@@ -28,7 +28,12 @@ EventsController = RouteController.extend({
   },
 
   show: function () {
-    this.render('Event', { /* data: {} */});
+    // this.render('Event', { /* data: {} */});
+    this.render('Questions', {
+      data: {
+        question: Questions.find({code: this.params.code})
+      }
+    });
   }
 
 });

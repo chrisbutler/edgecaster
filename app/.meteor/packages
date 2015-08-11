@@ -7,10 +7,10 @@
 meteor-platform
 http
 
-autopublish
 insecure
 
 iron:router
+zimme:active-route
 
 fourseven:scss
 twbs:bootstrap
