@@ -1,5 +1,3 @@
-Session.setDefault('typing', false);
-
 Template.registerHelper('livestamp', function(date, opts) {
   var time = new Date();
 
